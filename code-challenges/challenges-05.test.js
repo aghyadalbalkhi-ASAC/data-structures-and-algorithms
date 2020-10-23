@@ -158,11 +158,25 @@ CHALLENGE 5 - Stretch Goal
 Write a function named splitFoods that uses split to produce the same output as Challenge 3.
 
 You may also use other string or array methods.
+
+
+describe('Testing challenge 5', () => {
+  test('It should return a list of foods', () => {
+    expect(splitFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
+  });
+});
 ------------------------------------------------------------------------------------------------ */
 
 const splitFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  let ingredients = gruffaloCrumble.ingredients;
+  ingredients.forEach(element => {
+    let splitsent = element.split(' ');
+    let splitsentSlice = splitsent.slice(2);
+    let splitsentSliceJoin = splitsentSlice.join(' ');
+    result.push(splitsentSliceJoin);
+  });
   return result;
 };
 
@@ -303,7 +317,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return a list of foods', () => {
     expect(splitFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
   });
