@@ -68,9 +68,9 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = (str) => {
   let result = [];
 
-  for(let i=0;i<str.length+1;i++){
+  for (let i = 0; i < str.length + 1; i++) {
 
-    result.push(str.slice(i,str.length));
+    result.push(str.slice(i, str.length));
 
 
   }
@@ -89,9 +89,9 @@ const wordsToCharList = (arr) => {
   // Solution code here...
   let result = [];
 
-  for(let i=0;i<arr.length;i++){
+  for (let i = 0; i < arr.length; i++) {
 
-    result.push(arr.slice(i,i+1));
+    result.push(arr.slice(i, i + 1));
 
 
   }
@@ -188,11 +188,34 @@ Use the same recipe from Challenge 3, above.
 Write a function named stepAction that takes in the recipe and extracts the action verbs from the steps. Fortunate for you, the action verbs are the first word of each action.
 
 Return a new array containing just the verbs. For example, ['Mix until evenly distributed'] returns ['Mix'].
+
+const gruffaloCrumble = {
+  name: 'How to make a Gruffalo Crumble',
+  ingredients: [
+ // some Data
+  ],
+  steps: [
+    'Pre-heat a large oven to 375',
+    'De-prickle the gruffalo',
+    'Sprinkle with cinnamon, sugar, flour, and nuts',
+    'Mix until evenly distributed',
+    'Grease a 3-foot x 3-foot casserole dish',
+    'Combine gruffalo compote with water to maintain moisture in the oven',
+    'Fold together remaining ingredients to make the crisp',
+    'Spread the crisp evenly over the gruffalo mixture',
+    'Bake for 12-15 hours',
+  ]
+};
 ------------------------------------------------------------------------------------------------ */
 
 const stepActions = (recipe) => {
   let result = [];
   // Solution code here...
+  let stepsArray = recipe.steps;
+  stepsArray.forEach(element => {
+    result.push(element.split(' ')[0]);
+  });
+
   return result;
 };
 
@@ -211,6 +234,16 @@ For example:
 
 const removeEvenValues = (arr) => {
   // Solution code here...
+
+  for(let i=0;i<arr.length;i++){
+
+    if(arr[i]%2===0){
+      arr.splice(i,1);
+      i--;
+    }
+
+  }
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -323,14 +356,14 @@ describe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return a list of recipe steps', () => {
     expect(stepActions(gruffaloCrumble)).toStrictEqual(['Pre-heat', 'De-prickle', 'Sprinkle', 'Mix', 'Grease', 'Combine', 'Fold', 'Spread', 'Bake']);
     expect(stepActions(gruffaloCrumble).length).toStrictEqual(9);
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should remove the even numbers from the array', () => {
     let list = [1, 2, 3, 4, 5, 6];
     removeEvenValues(list);
@@ -385,6 +418,6 @@ xdescribe('Testing challenge 11', () => {
 });
 
 
-function createSnippetWithJQuery(html){
+function createSnippetWithJQuery(html) {
   return cheerio.load(html);
 }
