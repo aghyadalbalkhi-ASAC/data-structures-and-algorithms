@@ -141,7 +141,7 @@ const hasChildrenValues = (arr, character) => {
     let arrofValue = Object.values(value);
 
     arrofValue.forEach(key => {
-      console.log(key);
+    
       if (key === character) {
         result = true;
 
@@ -178,7 +178,7 @@ const hasChildrenEntries = (arr, character) => {
     arrofValue.forEach(key => {
 
       key.forEach(keyx => {
-        console.log(keyx);
+ 
         if (keyx === character) {
           result = true;
 
@@ -207,7 +207,7 @@ const totalCharacters = (arr) => {
     Object.values(entry).forEach(item => {
 
       if(item !==null)
-        console.log(itemN++);
+        itemN++;
 
 
     });
