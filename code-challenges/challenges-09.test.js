@@ -25,8 +25,8 @@ const createServer = () => {
   const express=require('express');
   const app=express();
 
-  // Routes go here
-  // Solution code here...
+  app.get('/events',getCurrentEvents);
+
 
   var server = app.listen(3301, function () {
     var port = server.address().port;
@@ -343,9 +343,8 @@ const countNumberOfChildren = (arr) => {
 
       return index+1;
     },0);
-    console.log(sum);
   });
-  
+
   return sum;
 
 };
